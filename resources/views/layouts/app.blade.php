@@ -11,13 +11,17 @@
 
   <script src="{{ mix('js/alpine.js') }}"></script>
 </head>
-<body class="bg-gray-100 antialiased leading-normal font-sans text-gray-600">
+<body class="bg-gray-100 antialiased leading-normal font-sans text-gray-700">
   <div id="app" class="flex flex-col min-h-screen">
     <div class="flex-1 animate fadeIn">
 
       @include('partials.header')
 
-      @yield('content')
+      <div class="md:max-w-6xl md:mx-auto px-4 py-10">
+
+        @yield('content')
+
+      </div>
 
     </div>
 
