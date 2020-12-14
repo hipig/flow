@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>@yield('title', '首页') - {{ config('app.name') }}</title>
+  <title>@yield('title', '后台管理') - {{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -13,22 +13,28 @@
 </head>
 <body class="bg-gray-100 antialiased leading-normal font-sans text-gray-700">
   <div id="app" class="flex flex-col min-h-screen">
-    <div class="flex-1 animate fadeIn">
+    <div class="flex-1">
 
       @section('header')
-        @include('partials.header')
+        @include('partials.admin.header')
       @show
 
-      <div class="md:max-w-6xl md:mx-auto px-4 py-10">
+      <div class="-mt-56">
+        <div class="md:max-w-6xl md:mx-auto px-4 pb-10">
+          @yield('breadcrumb')
 
-        @yield('content')
+          @include('partials.alert')
 
+          @yield('content')
+
+        </div>
       </div>
+
 
     </div>
 
     @section('footer')
-      @include('partials.footer')
+      @include('partials.admin.footer')
     @show
 
   </div>

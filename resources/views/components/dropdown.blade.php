@@ -8,7 +8,7 @@
 @endphp
 
 <div x-data="{ open: false }" class="relative" x-cloak>
-  <div x-on:click="open = ! open" class="cursor-pointer">
+  <div x-on:click="open = ! open" class="cursor-pointer leading-none">
     {{ $slot }}
   </div>
 
