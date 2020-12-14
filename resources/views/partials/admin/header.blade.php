@@ -7,7 +7,6 @@
         </a>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
-            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-4 font-medium">首页</a>
             <a href="{{ route('dashboard') }}" class="border-b text-gray-100 py-4 font-medium">仪表盘</a>
             <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-4 font-medium">设置</a>
             <a href="{{ route('categories.index') }}" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-4 font-medium">分类</a>
