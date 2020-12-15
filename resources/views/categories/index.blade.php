@@ -43,13 +43,13 @@
                   <span class="font-semibold text-gray-800">{{ $category->name }}</span>
                 </x-table.td>
                 <x-table.td>
-                  <span class="text-sm text-gray-500">0 篇</span>
+                  <span class="text-sm text-gray-500">{{ $category->posts_count }} 篇</span>
                 </x-table.td>
                 <x-table.td>
-                  <div class="space-x-2">
-                    <a href="{{ route('categories.edit', $category) }}" class="focus:outline-none text-blue-500 hover:text-blue-600">编辑</a>
+                  <div class="flex flex-wrap space-x-2">
+                    <a href="{{ route('categories.edit', $category) }}" class="focus:outline-none text-indigo-600 hover:text-indigo-700">编辑</a>
                     <x-modal size="sm:max-w-md">
-                      <button type="button" class="focus:outline-none text-red-500 hover:text-red-600">删除</button>
+                      <button type="button" class="focus:outline-none text-red-600 hover:text-red-700">删除</button>
                       <x-slot name="content">
                         <div class="sm:flex sm:items-start">
                           <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">

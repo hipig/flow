@@ -31,5 +31,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('categories', Controllers\CategoriesController::class)->except(['create']);
 
+    Route::resource('posts', Controllers\PostsController::class);
+
 });
 

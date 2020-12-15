@@ -10,9 +10,9 @@
             <a href="{{ route('dashboard') }}" class="border-b text-gray-100 py-5 font-medium">仪表盘</a>
             <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">设置</a>
             <a href="{{ route('categories.index') }}" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">分类</a>
-            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">文章</a>
+            <a href="{{ route('posts.index') }}" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">文章</a>
+            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">页面</a>
             <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">留言</a>
-            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">附件</a>
           </div>
         </div>
       </div>

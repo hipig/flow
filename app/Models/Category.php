@@ -11,7 +11,8 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description'
+        'name',
+        'description',
     ];
 
     protected static function booted()
@@ -19,6 +20,11 @@ class Category extends Model
         static::creating(function ($model) {
             $model->uuid = Str::uuid();
         });
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 
     public function getRouteKeyName()
