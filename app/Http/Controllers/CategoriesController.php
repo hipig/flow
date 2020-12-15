@@ -12,7 +12,7 @@ class CategoriesController extends Controller
     {
         $categories = Category::query()
             ->latest()
-            ->get();
+            ->paginate();
 
         return view('categories.index', compact('categories'));
     }
@@ -22,6 +22,11 @@ class CategoriesController extends Controller
         Category::create($request->only('name', 'description'));
 
         return back()->with('success', '添加分类成功');
+    }
+
+    public function edit(Category $category)
+    {
+        return view('categories.form', compact('category'));
     }
 
     public function update(CategoryRequest $request, Category $category)

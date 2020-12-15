@@ -5,7 +5,7 @@
         <span class="text-sm inline-flex">©2020 Flow Blog. All rights reserved.</span>
       </div>
       <div class="w-full md:w-1/2 md:text-right">
-        <a href="#" target="_blank" class="text-sm inline-flex hover:underline hover:text-indigo-400 mr-4">Github</a>
+        <a href="#" target="_blank" class="text-sm inline-flex hover:underline hover:text-indigo-600 mr-4">GitHub</a>
       </div>
     </div>
   </div>

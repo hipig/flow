@@ -11,7 +11,7 @@
 
   <script src="{{ mix('js/alpine.js') }}"></script>
 </head>
-<body class="bg-gray-100 antialiased leading-normal font-sans text-gray-700">
+<body class="bg-gray-100 subpixel-antialiased leading-normal font-sans text-gray-700">
   <div id="app" class="flex flex-col min-h-screen">
     <div class="flex-1">
 

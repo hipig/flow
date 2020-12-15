@@ -19,7 +19,7 @@
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">忘记密码？</a>
         </div>
 
-        <x-button type="submit" class="w-full">登录</x-button>
+        <x-button type="submit" class="w-full text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500">登录</x-button>
       </x-form>
     </x-card>
   </div>

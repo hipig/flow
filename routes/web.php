@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-    Route::resource('categories', Controllers\CategoriesController::class)->except(['create', 'edit', 'show']);
+    Route::resource('categories', Controllers\CategoriesController::class)->except(['create']);
 
 });
 

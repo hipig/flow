@@ -9,25 +9,23 @@
   @endif
 
   <div class="relative">
-    <input
-      id="{{ $name }}"
+    <textarea
+      id="{{ $id ?? $name }}"
+      rows="{{ $rows ?? 3 }}"
       autocomplete="off"
-      type="{{ $type ?? 'text' }}"
-      class="block w-full shadow-sm rounded-md leading-snug {{ $errors->has($name) ? ' focus:ring-red-500 focus:border-red-500 border-red-500 bg-red-100 pr-10' : ' focus:ring-indigo-500 focus:border-indigo-500 border-gray-300' }}"
+      class="block w-full shadow-sm rounded-md leading-snug {{ $errors->has($name) ? 'focus:ring-red-500 focus:border-red-500 border-red-500 bg-red-100 pr-10' : 'focus:ring-indigo-500 focus:border-indigo-500 border-gray-300' }}"
       name="{{ $name }}"
       placeholder="{{ $placeholder ?? '' }}"
-      value="{{ old($name, $value ?? '') }}"
-      {{ ($required ?? false) ? 'required' : '' }}
-      {{ $attributes }}
-    >
+			{{ ($required ?? false) ? 'required' : '' }}
+    >{{ old($name, $value ?? '') }}</textarea>
 
-    @isset($hint)
+  @isset($hint)
       <div class="text-sm text-gray-500 my-2 leading-tight help-text">{{ $hint }}</div>
     @endisset
 
 
     @error($name)
-    <div class="flex items-center absolute top-0 bottom-0 right-0 px-3">
+    <div class="absolute top-0 bottom-0 right-0 pt-3 px-3">
       <svg class="text-red-600 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path
           d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z" />
