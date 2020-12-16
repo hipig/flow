@@ -15,7 +15,7 @@
         <x-form.input label="用户名" name="email" placeholder="请输入用户名"></x-form.input>
         <x-form.input type="password" label="密码" name="password" placeholder="请输入密码"></x-form.input>
         <div class="mb-6 flex items-center justify-between">
-          <x-form.checkbox name="remember">记住我</x-form.checkbox>
+          <x-form.checkbox name="remember" value="1">记住我</x-form.checkbox>
           <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">忘记密码？</a>
         </div>
 

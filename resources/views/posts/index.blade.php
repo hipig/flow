@@ -22,7 +22,7 @@
     <x-card class="overflow-x-auto">
       <div class="flex flex-col">
         <div class="flex items-center">
-          {{--     搜索框占位    --}}
+          <x-search name="keyword" placeholder="文章标题..."></x-search>
         </div>
         <div class="flex flex-col -mx-5">
           <x-table>
@@ -41,8 +41,8 @@
                       {{ $post->title }}
                     </div>
                     <div class="flex flex-wrap space-x-2 mt-1 text-sm">
-                      <a class="text-gray-600" href="{{ route('posts.edit', $post->uuid) }}">编辑</a>
-                      <a target="_blank" class="text-gray-600" href="{{ route('posts.show', $article->slug) }}">预览</a>
+                      <a class="focus:outline-none text-indigo-600 hover:text-indigo-700" href="{{ route('posts.edit', $post->uuid) }}">编辑</a>
+                      <a target="_blank" class="focus:outline-none text-gray-600 hover:text-gray-700" href="#">预览</a>
                       <x-modal size="sm:max-w-md">
                         <button type="button" class="focus:outline-none text-red-600 hover:text-red-700">删除</button>
                         <x-slot name="content">

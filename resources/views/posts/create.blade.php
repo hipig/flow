@@ -7,7 +7,7 @@
     'links' => [
         '仪表盘' => route('dashboard'),
         '文章列表' => route('posts.index'),
-        '添加'
+        '添加文章'
     ]
   ])
 @endsection
@@ -15,7 +15,7 @@
 @section('content')
   <div class="flex flex-col">
     <div class="flex items-center mb-4 justify-between">
-      <h2 class="font-bold text-2xl text-white">新文章</h2>
+      <h2 class="font-bold text-2xl text-white">添加文章</h2>
     </div>
     <x-card>
       <x-form action="{{ route('posts.store') }}" method="post">
@@ -34,6 +34,7 @@
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
               @endforeach
             </x-form.select>
+            <x-form.switch label="状态" name="status" :value="true"></x-form.switch>
             <x-form.input label="发布时间" name="published_at" placeholder="请输入发布时间"></x-form.input>
             <x-button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:ring-gray-800">保存</x-button>
           </div>

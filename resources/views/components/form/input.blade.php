@@ -27,8 +27,8 @@
 
 
     @error($name)
-    <div class="flex items-center absolute top-0 bottom-0 right-0 px-3">
-      <svg class="text-red-600 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <div class="flex items-center absolute inset-y-0 right-0 px-2">
+      <svg class="text-red-600 w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
         <path
           d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z" />
       </svg>
