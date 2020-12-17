@@ -7,12 +7,12 @@
         </a>
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
-            <a href="{{ route('dashboard') }}" class="border-b text-gray-100 py-5 font-medium">仪表盘</a>
-            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">设置</a>
-            <a href="{{ route('categories.index') }}" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">分类</a>
-            <a href="{{ route('posts.index') }}" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">文章</a>
-            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">页面</a>
-            <a href="#" class="border-b border-transparent text-gray-400 hover:text-gray-100 py-5 font-medium">留言</a>
+            <a href="{{ route('dashboard') }}" class="border-b py-5 font-medium {{ active_class(if_route('dashboard'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">仪表盘</a>
+            <a href="#" class="border-b py-5 font-medium {{ active_class(if_route('settings.updateAll'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">设置</a>
+            <a href="{{ route('categories.index') }}" class="border-b py-5 font-medium {{ active_class(if_route('categories.index'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">分类</a>
+            <a href="{{ route('posts.index') }}" class="border-b py-5 font-medium {{ active_class(if_route('posts.index'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">文章</a>
+            <a href="#" class="border-b py-5 font-medium {{ active_class(if_route('pages.index'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">页面</a>
+            <a href="#" class="border-b py-5 font-medium {{ active_class(if_route('contacts.index'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">留言</a>
           </div>
         </div>
       </div>

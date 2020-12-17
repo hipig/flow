@@ -8,8 +8,10 @@
   <title>@yield('title', '后台管理') - {{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  @stack('style')
 
   <script src="{{ mix('js/alpine.js') }}"></script>
+  @stack('script')
 </head>
 <body class="bg-gray-100 subpixel-antialiased leading-normal font-sans text-gray-700">
   <div id="app" class="flex flex-col min-h-screen">
@@ -37,6 +39,7 @@
       @include('partials.admin.footer')
     @show
 
+    @stack('afterScript')
   </div>
 </body>
 </html>

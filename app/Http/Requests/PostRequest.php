@@ -31,6 +31,11 @@ class PostRequest extends FormRequest
             'category_id' => [
                 'required',
                 Rule::in(Category::query()->pluck('id'))
+            ],
+            'status' => [
+                function ($attribute, $value, $fail) {
+                    $this->offsetSet('status', $this->boolean('status'));
+                }
             ]
         ];
     }

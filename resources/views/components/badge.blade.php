@@ -1,7 +1,8 @@
-@props(['type' => 'info'])
+@props(['type' => 'default'])
 
 @php
   $badgeClasses = [
+    'default' => 'bg-gray-200 text-gray-700',
     'info' => 'bg-blue-200 text-blue-700',
     'success' => 'bg-green-200 text-green-800',
     'warning' => 'bg-orange-200 text-orange-800',

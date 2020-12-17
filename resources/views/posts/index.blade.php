@@ -83,7 +83,7 @@
                   {{ $post->published_at }}
                 </x-table.td>
                 <x-table.td>
-                  <x-badge type="{{ $post->status ? 'success' : 'info' }}">{{ $post->status ? '启用' : '禁用' }}</x-badge>
+                  <x-badge type="{{ $post->status ? 'success' : 'default' }}">{{ $post->status ? '启用' : '禁用' }}</x-badge>
                 </x-table.td>
               </tr>
             @empty
