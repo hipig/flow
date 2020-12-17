@@ -14,10 +14,14 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/alpine.js', 'public/js')
     .js('resources/vendor/quill/quill.js', 'public/vendor/quill')
+    .js('resources/vendor/filepond/filepond.js', 'public/vendor/filepond')
     .postCss('resources/css/app.css', 'public/css', [
       require("tailwindcss"),
     ])
     .postCss('resources/vendor/quill/quill.css', 'public/vendor/quill', [
+      require("tailwindcss"),
+    ])
+    .postCss('resources/vendor/filepond/filepond.css', 'public/vendor/filepond', [
       require("tailwindcss"),
     ])
     .version();
