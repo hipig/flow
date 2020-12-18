@@ -1,4 +1,53 @@
-<div class="mb-5">
+@push('style')
+  @once
+    <link rel="stylesheet" href="{{ mix('vendor/filepond/filepond.css') }}">
+  @endonce
+@endpush
+
+@push('afterScript')
+  @once
+    <script src="{{ mix('vendor/filepond/filepond.js') }}"></script>
+  @endonce
+@endpush
+
+@php
+  $files = explode(',', $value ?? '');
+
+  $filesJson = json_encode($files);
+@endphp
+
+<div class="mb-5" x-data="{path: '', filepond: null, files: [], sourceFiles: []}" x-init="
+  @if($value)
+  files = JSON.parse(`{{ $filesJson }}`);
+  files.forEach((item) => {
+    sourceFiles.push({
+      source: item,
+      options: {
+          type: 'local'
+      }
+    })
+  });
+  @endif
+
+  filepond = FilePond.create($refs.filepond, {
+    server: {
+      process: {
+        url: `{{ route('image.process')}}`,
+        onload: (response) => {
+          path = response
+        }
+      },
+      revert: `{{ route('image.revert')}}`,
+      restore: `{{ route('image.restore')}}`,
+      headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+      }
+    },
+    @if($value)
+      files: sourceFiles
+    @endif
+  })
+" x-cloak>
   @if($label ?? null)
     <label for="{{ $name }}" class="form-label block mb-1 font-semibold text-gray-700">
       {{ $label }}
@@ -8,23 +57,25 @@
     </label>
   @endif
 
-  <div class="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-    <div class="space-y-1 text-center">
-      <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-      <div class="flex justify-center text-sm text-gray-600">
-        <label for="{{ $name }}" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-          <span>选择图片</span>
-          <input id="{{ $name }}" name="{{ $name }}" type="file" class="sr-only">
-        </label>
-        <p class="pl-1">或将图片拖至此处</p>
+  <div class="relative">
+    <input x-ref="filepond" type="file">
+    <input type="hidden" name="{{ $name }}" :value="path">
+
+    @error($name)
+      <div class="absolute inset-y-0 right-0 pt-2 px-2">
+        <svg class="text-red-600 w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z" />
+        </svg>
       </div>
-      <p class="text-xs text-gray-400">{{ $placeholder }}</p>
-    </div>
+    @enderror
   </div>
 
+  @isset($hint)
+    <div class="text-sm text-gray-500 my-2 leading-tight help-text">{{ $hint }}</div>
+  @endisset
+
   @error($name)
-  <div class="text-red-600 mt-2 text-sm block leading-tight error-text">{{ $message }}</div>
+    <div class="text-red-600 mt-2 text-sm block leading-tight error-text">{{ $message }}</div>
   @enderror
 </div>

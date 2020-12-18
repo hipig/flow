@@ -22,11 +22,6 @@
       {{ $slot }}
     </select>
 
-    @isset($hint)
-      <div class="text-sm text-gray-500 my-2 leading-tight help-text">{{ $hint }}</div>
-    @endisset
-
-
     @error($name)
     <div class="flex items-center absolute inset-y-0 right-0 px-2">
       <svg class="text-red-600 w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -38,7 +33,11 @@
     @enderror
   </div>
 
+  @isset($hint)
+    <div class="text-sm text-gray-500 my-2 leading-tight help-text">{{ $hint }}</div>
+  @endisset
+
   @error($name)
-  <div class="text-red-600 mt-2 text-sm block leading-tight error-text">{{ $message }}</div>
+    <div class="text-red-600 mt-2 text-sm block leading-tight error-text">{{ $message }}</div>
   @enderror
 </div>

@@ -22,7 +22,7 @@
         <div class="flex flex-wrap -mx-4">
           <div class="flex-1 px-4">
             <x-form.input label="标题" name="title" value="{{ $post->title }}" placeholder="请输入标题"></x-form.input>
-            <x-form.upload label="封面" name="cover" placeholder="PNG, JPG, GIF 格式的图片不能超过 10MB"></x-form.upload>
+            <x-form.upload label="封面" name="cover" value="{{ $post->cover }}" placeholder="PNG, JPG, GIF 格式的图片不能超过 10MB"></x-form.upload>
             <x-form.quill-editor label="主要内容" name="body" value="{!! $post->body !!}" placeholder="请输入主要内容"></x-form.quill-editor>
             <x-form.input label="SEO 标题" name="seo_title" value="{{ $post->seo_title }}" placeholder="请输入SEO 标题"></x-form.input>
             <x-form.input label="SEO 关键词" name="seo_keywords" value="{{ $post->seo_keywords }}" placeholder="请输入SEO 关键词"></x-form.input>

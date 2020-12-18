@@ -33,5 +33,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('posts', Controllers\PostsController::class);
 
+    Route::post('uploads/image', [Controllers\ImageUploadsController::class, 'process'])->name('image.process');
+    Route::get('uploads/image', [Controllers\ImageUploadsController::class, 'restore'])->name('image.restore');
+    Route::delete('uploads/image', [Controllers\ImageUploadsController::class, 'revert'])->name('image.revert');
 });
 
