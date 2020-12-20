@@ -1,9 +1,8 @@
-import Locale from "./locale/zh-cn"
-
 const FilePond = require('filepond/dist/filepond')
+const zhCN = require('./locale/zh-cn').default
 
 FilePond.setOptions({
-  ...Locale,
+  ...zhCN,
   credits: null
 })
 

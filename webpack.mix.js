@@ -11,17 +11,29 @@ const mix = require('laravel-mix');
  |
  */
 
+// app
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/alpine.js', 'public/js')
-    .js('resources/vendor/quill/quill.js', 'public/vendor/quill')
-    .js('resources/vendor/filepond/filepond.js', 'public/vendor/filepond')
     .postCss('resources/css/app.css', 'public/css', [
       require("tailwindcss"),
-    ])
+    ]);
+
+// quill
+mix.js('resources/vendor/quill/quill.js', 'public/vendor/quill')
     .postCss('resources/vendor/quill/quill.css', 'public/vendor/quill', [
-      require("tailwindcss"),
-    ])
+        require("tailwindcss"),
+      ]);
+
+// filepond
+mix.js('resources/vendor/filepond/filepond.js', 'public/vendor/filepond')
     .postCss('resources/vendor/filepond/filepond.css', 'public/vendor/filepond', [
       require("tailwindcss"),
-    ])
-    .version();
+    ]);
+
+// flatpickr
+mix.js('resources/vendor/flatpickr/flatpickr.js', 'public/vendor/flatpickr')
+  .postCss('resources/vendor/flatpickr/flatpickr.css', 'public/vendor/flatpickr', [
+    require("tailwindcss"),
+  ]);
+
+mix.version();

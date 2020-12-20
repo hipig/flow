@@ -6,29 +6,27 @@ use App\Http\Requests\ImageUploadRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ImageUploadsController extends Controller
+class FilepondUploadsController extends Controller
 {
     protected $disk = 'upload';
 
     public function process(ImageUploadRequest $request)
     {
-        $path = $request->file('filepond')->store('images', $this->disk);
+        $path = $request->file('image')->store('images', $this->disk);
 
         return response()->json($path);
     }
 
-    public function restore(Request $request)
+    public function load(Request $request)
     {
-        $path = $request->get('restore');
+        $path = $request->get('load');
 
         return Storage::disk($this->disk)->download($path);
     }
 
     public function revert(Request $request)
     {
-        $path = trim($request->getContent(), '"');
-
-        Storage::disk($this->disk)->delete($path);
+        Storage::disk($this->disk)->delete($request->getContent());
 
         return response(null, 204);
     }

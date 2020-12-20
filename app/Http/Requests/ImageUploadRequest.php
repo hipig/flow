@@ -24,7 +24,7 @@ class ImageUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'filepond' => 'required|image|max:10240',
+            'image' => 'required|image|max:10240',
         ];
     }
 }

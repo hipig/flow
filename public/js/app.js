@@ -19388,6 +19388,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/vendor/flatpickr/flatpickr.css":
+/*!**************************************************!*\
+  !*** ./resources/vendor/flatpickr/flatpickr.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/vendor/quill/quill.css":
 /*!******************************************!*\
   !*** ./resources/vendor/quill/quill.css ***!
@@ -19400,16 +19411,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!***************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/css/app.css ./resources/vendor/quill/quill.css ./resources/vendor/filepond/filepond.css ***!
-  \***************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/app.css ./resources/vendor/quill/quill.css ./resources/vendor/filepond/filepond.css ./resources/vendor/flatpickr/flatpickr.css ***!
+  \**********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\laragon\www\flow\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\laragon\www\flow\resources\css\app.css */"./resources/css/app.css");
-__webpack_require__(/*! E:\laragon\www\flow\resources\vendor\quill\quill.css */"./resources/vendor/quill/quill.css");
-module.exports = __webpack_require__(/*! E:\laragon\www\flow\resources\vendor\filepond\filepond.css */"./resources/vendor/filepond/filepond.css");
+__webpack_require__(/*! D:\laragon\www\flow\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\laragon\www\flow\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! D:\laragon\www\flow\resources\vendor\quill\quill.css */"./resources/vendor/quill/quill.css");
+__webpack_require__(/*! D:\laragon\www\flow\resources\vendor\filepond\filepond.css */"./resources/vendor/filepond/filepond.css");
+module.exports = __webpack_require__(/*! D:\laragon\www\flow\resources\vendor\flatpickr\flatpickr.css */"./resources/vendor/flatpickr/flatpickr.css");
 
 
 /***/ })

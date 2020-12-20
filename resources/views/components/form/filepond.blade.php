@@ -17,36 +17,38 @@
 @endphp
 
 <div class="mb-5" x-data="{path: '', filepond: null, files: [], sourceFiles: []}" x-init="
-  @if($value)
-  files = JSON.parse(`{{ $filesJson }}`);
-  files.forEach((item) => {
-    sourceFiles.push({
-      source: item,
-      options: {
-          type: 'local'
-      }
-    })
-  });
-  @endif
-
   filepond = FilePond.create($refs.filepond, {
+    name: 'image',
     server: {
+      url: '/filepond',
       process: {
-        url: `{{ route('image.process')}}`,
+        url: '/process',
         onload: (response) => {
-          path = response
+          path = eval('('+response+')');
+          return path;
         }
       },
-      revert: `{{ route('image.revert')}}`,
-      restore: `{{ route('image.restore')}}`,
+      revert: '/revert',
+      restore: '/load?load=',
+      load: '/load?load=',
       headers: {
         'X-CSRF-TOKEN': '{{ csrf_token() }}'
       }
-    },
-    @if($value)
-      files: sourceFiles
-    @endif
-  })
+    }
+  });
+
+  @if($value ?? '')
+    files = JSON.parse(`{{ $filesJson }}`);
+    files.forEach((item) => {
+      sourceFiles.push({
+        source: item,
+        options: {
+          type: 'limbo'
+        }
+      })
+    });
+    filepond.addFiles(sourceFiles);
+  @endif
 " x-cloak>
   @if($label ?? null)
     <label for="{{ $name }}" class="form-label block mb-1 font-semibold text-gray-700">

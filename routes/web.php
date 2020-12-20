@@ -33,8 +33,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('posts', Controllers\PostsController::class);
 
-    Route::post('uploads/image', [Controllers\ImageUploadsController::class, 'process'])->name('image.process');
-    Route::get('uploads/image', [Controllers\ImageUploadsController::class, 'restore'])->name('image.restore');
-    Route::delete('uploads/image', [Controllers\ImageUploadsController::class, 'revert'])->name('image.revert');
+    Route::prefix('filepond')->group(function () {
+        Route::post('process', [Controllers\FilepondUploadsController::class, 'process'])->name('filepond.process');
+        Route::get('load', [Controllers\FilepondUploadsController::class, 'load'])->name('filepond.load');
+        Route::delete('revert', [Controllers\FilepondUploadsController::class, 'revert'])->name('filepond.revert');
+    });
+
 });
 
