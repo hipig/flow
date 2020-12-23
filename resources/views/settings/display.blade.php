@@ -6,7 +6,7 @@
   @include('partials.admin.breadcrumb', [
     'links' => [
         '仪表盘' => route('dashboard'),
-        '系统设置'
+        '设置'
     ]
   ])
 @endsection
@@ -16,7 +16,7 @@
     <div class="flex items-center mb-4 justify-between">
       <h2 class="font-bold text-2xl text-white">系统设置</h2>
       <div class="flex flex-wrap space-x-2">
-        <x-button to="#" class="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-offset-gray-800 focus:ring-indigo-500">配置列表</x-button>
+        <x-button to="{{ route('settings.index')}}" class="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-offset-gray-800 focus:ring-indigo-500">配置列表</x-button>
       </div>
     </div>
     <x-card class="overflow-x-auto">

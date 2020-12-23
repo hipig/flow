@@ -6,7 +6,7 @@
   @include('partials.admin.breadcrumb', [
     'links' => [
         '仪表盘' => route('dashboard'),
-        '分类列表'
+        '列表'
     ]
   ])
 @endsection

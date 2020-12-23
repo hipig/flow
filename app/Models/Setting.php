@@ -38,4 +38,9 @@ class Setting extends Model
         'extra' => 'json',
         'status' => 'boolean',
     ];
+
+    public function getGroupNameAttribute()
+    {
+        return config('flow.setting_groups')[$this->getAttribute('group')]['label'] ?? '未知分组';
+    }
 }

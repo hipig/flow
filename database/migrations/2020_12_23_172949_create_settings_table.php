@@ -15,8 +15,8 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('label')->comment('标题');
-            $table->string('key')->comment('名称');
+            $table->string('label')->comment('名称');
+            $table->string('key')->comment('标识');
             $table->text('value')->nullable()->comment('配置值');
             $table->string('group')->comment('分组');
             $table->string('type')->default(\App\Models\Setting::TYPE_INPUT)->comment('表单类型');
