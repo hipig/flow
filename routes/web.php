@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+    Route::get('settings/display', [Controllers\SettingsController::class, 'display'])->name('settings.display');
+
     Route::resource('categories', Controllers\CategoriesController::class)->except(['create']);
 
     Route::resource('posts', Controllers\PostsController::class);

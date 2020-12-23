@@ -21,9 +21,7 @@
     </div>
     <x-card class="overflow-x-auto">
       <div class="flex flex-col">
-        <div class="flex items-center">
-          <x-search name="keyword" placeholder="文章标题..."></x-search>
-        </div>
+        <x-search name="keyword" placeholder="文章标题..."></x-search>
         <div class="flex flex-col -mx-5">
           <x-table>
             <x-slot name="head">

@@ -8,7 +8,7 @@
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
             <a href="{{ route('dashboard') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('dashboard'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">仪表盘</a>
-            <a href="#" class="border-b py-5 font-medium {{ active_class(if_route_pattern('settings.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">设置</a>
+            <a href="{{ route('settings.display') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('settings.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">设置</a>
             <a href="{{ route('categories.index') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('categories.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">分类</a>
             <a href="{{ route('posts.index') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('posts.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">文章</a>
             <a href="#" class="border-b py-5 font-medium {{ active_class(if_route_pattern('pages.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">页面</a>
