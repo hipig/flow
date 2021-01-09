@@ -10,7 +10,7 @@
   @endonce
 @endpush
 
-<div class="mb-5 {{ $errors->has($name) ? 'ql-editor-error' : '' }}" x-data="{ content: '' }" x-init="
+<div class="mb-5" x-data="{ content: '' }" x-init="
 		quill = new Quill($refs.quillEditor, {
 			modules: {
         toolbar: {
@@ -22,7 +22,7 @@
           ]
         }
       },
-      theme: 'snow',
+      theme: '{{ $theme ?? "snow" }}',
       scrollingContainer: 'html, body',
       placeholder: '{{ $placeholder ?? "请输入内容" }}'
     });
@@ -42,7 +42,7 @@
 
   <div class="relative">
     <input type="hidden" name="{{ $name }}" :value="content">
-    <div x-ref="quillEditor" x-model="content" class="bg-white h-56">
+    <div x-ref="quillEditor" x-model="content" class="bg-white {{ $errors->has($name) ? 'ql-editor-error' : '' }}">
       {!! old($name, $value ?? '') !!}
     </div>
 

@@ -27,14 +27,20 @@ Route::middleware('auth')->group(function () {
 
     Route::get('dashboard', [Controllers\DashboardController::class, 'index'])->name('dashboard');
 
+    Route::get('profile', [Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('profile', [Controllers\ProfileController::class, 'update'])->name('profile.update');
+
     Route::post('logout', [Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
     Route::get('settings/display', [Controllers\SettingsController::class, 'display'])->name('settings.display');
+    Route::put('settings/display', [Controllers\SettingsController::class, 'updateAll'])->name('settings.updateAll');
     Route::resource('settings', Controllers\SettingsController::class)->except(['show']);
 
     Route::resource('categories', Controllers\CategoriesController::class)->except(['create']);
 
     Route::resource('posts', Controllers\PostsController::class);
+
+    Route::resource('pages', Controllers\PagesController::class);
 
     Route::prefix('filepond')->group(function () {
         Route::post('process', [Controllers\FilepondUploadsController::class, 'process'])->name('filepond.process');

@@ -11,7 +11,7 @@
             <a href="{{ route('settings.display') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('settings.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">设置</a>
             <a href="{{ route('categories.index') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('categories.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">分类</a>
             <a href="{{ route('posts.index') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('posts.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">文章</a>
-            <a href="#" class="border-b py-5 font-medium {{ active_class(if_route_pattern('pages.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">页面</a>
+            <a href="{{ route('pages.index') }}" class="border-b py-5 font-medium {{ active_class(if_route_pattern('pages.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">页面</a>
             <a href="#" class="border-b py-5 font-medium {{ active_class(if_route_pattern('contacts.*'), 'text-gray-100', 'border-transparent text-gray-400 hover:text-gray-100') }}">留言</a>
           </div>
         </div>

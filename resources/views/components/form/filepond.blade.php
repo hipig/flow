@@ -60,7 +60,7 @@
   @endif
 
   <div class="relative">
-    <input x-ref="filepond" type="file">
+    <input x-ref="filepond" type="file" class="{{ $errors->has($name) ? 'filepond-has-error' : '' }}">
     <input type="hidden" name="{{ $name }}" :value="path">
 
     @error($name)

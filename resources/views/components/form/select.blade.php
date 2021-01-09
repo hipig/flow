@@ -16,7 +16,7 @@
       {{ ($required ?? false) ? 'required' : '' }}
       {{ $attributes }}
     >
-      @if(isset($placeholder))
+      @if(isset($placeholder) && $placeholder)
         <option value="" disabled>{{ $placeholder }}</option>
       @endif
       {{ $slot }}

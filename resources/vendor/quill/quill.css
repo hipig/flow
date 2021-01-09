@@ -2,7 +2,7 @@
 @import "~quill/dist/quill.snow.css";
 
 .ql-editor-error .ql-container.ql-snow{
-  @apply border-red-500 border-b-0;
+  @apply ring-red-500 border-red-500;
 }
 
 .ql-toolbar.ql-snow {

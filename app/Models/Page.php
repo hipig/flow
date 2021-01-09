@@ -2,26 +2,22 @@
 
 namespace App\Models;
 
+use App\Models\Traits\StatusScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Post extends Model
+class Page extends Model
 {
-    use HasFactory;
+    use HasFactory, StatusScope;
 
     protected $fillable = [
-        'category_id',
-        'user_id',
         'title',
-        'slug',
-        'cover',
-        'body',
-        'seo_title',
+        'name',
+        'content',
         'seo_description',
         'seo_keywords',
         'status',
-        'published_at',
     ];
 
     protected $casts = [
@@ -31,22 +27,12 @@ class Post extends Model
     protected static function booted()
     {
         static::creating(function ($model) {
-            $model->uuid = Str::uuid();
+            $model->title = Str::title($model->name);
         });
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
     }
 
     public function getRouteKeyName()
     {
-        return 'uuid';
+        return 'name';
     }
 }

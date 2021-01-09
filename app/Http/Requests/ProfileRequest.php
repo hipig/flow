@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Category;
 use Illuminate\Validation\Rule;
 
-class PostRequest extends FormRequest
+class ProfileRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,12 +14,12 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'body' => 'required',
-            'category_id' => [
+            'name' => 'required',
+            'email' => [
                 'required',
-                Rule::in(Category::query()->pluck('id'))
+                Rule::unique('users')->ignore(auth()->id()),
             ],
+            'password' => 'sometimes|confirmed',
         ];
     }
 }
